@@ -1,0 +1,103 @@
+body{
+
+  margin:0;
+  font-family:Arial;
+  background:url('../assets/bg.jpg') center/cover fixed;
+  color:white;
+
+}
+
+.hero{
+
+  width:500px;
+
+  margin:auto;
+
+  margin-top:100px;
+
+  background:rgba(0,0,0,0.8);
+
+  padding:40px;
+
+  border-radius:20px;
+
+  box-shadow:
+    0 0 20px red;
+
+}
+
+h1{
+
+  text-align:center;
+
+  color:red;
+
+}
+
+input{
+
+  width:100%;
+
+  padding:15px;
+
+  margin-bottom:15px;
+
+  border:none;
+
+  border-radius:10px;
+
+}
+
+button{
+
+  width:100%;
+
+  padding:15px;
+
+  border:none;
+
+  border-radius:10px;
+
+  background:red;
+
+  color:white;
+
+  font-weight:bold;
+
+  cursor:pointer;
+
+}
+
+.hero{
+
+  animation: glow 2s infinite alternate;
+
+}
+
+@keyframes glow{
+
+  from{
+    box-shadow:0 0 20px red;
+  }
+
+  to{
+    box-shadow:
+      0 0 40px crimson,
+      0 0 80px darkred;
+  }
+
+}
+
+button{
+
+  transition:0.3s;
+
+}
+
+button:hover{
+
+  transform:scale(1.05);
+
+  background:crimson;
+
+}
