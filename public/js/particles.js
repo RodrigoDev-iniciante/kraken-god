@@ -1,56 +1,44 @@
 const canvas = document.createElement('canvas');
-
 document.body.appendChild(canvas);
-
-canvas.style.position = 'fixed';
-canvas.style.top = 0;
-canvas.style.left = 0;
-canvas.style.zIndex = -1;
 
 const ctx = canvas.getContext('2d');
 
-canvas.width = innerWidth;
-canvas.height = innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 const particles = [];
 
-for(let i=0;i<120;i++){
+for(let i=0;i<200;i++){
 
-  particles.push({
-
-    x:Math.random()*canvas.width,
-    y:Math.random()*canvas.height,
-    r:Math.random()*3
-
-  });
+    particles.push({
+        x:Math.random()*canvas.width,
+        y:Math.random()*canvas.height,
+        radius:Math.random()*3,
+        speed:Math.random()*1.5
+    });
 
 }
 
 function animate(){
 
-  ctx.clearRect(0,0,canvas.width,canvas.height);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
 
-  particles.forEach(p=>{
+    particles.forEach(p=>{
 
-    ctx.beginPath();
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.radius,0,Math.PI*2);
+        ctx.fillStyle='rgba(255,0,0,0.5)';
+        ctx.fill();
 
-    ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        p.y += p.speed;
 
-    ctx.fillStyle='rgba(255,0,0,0.5)';
+        if(p.y > canvas.height){
+            p.y = 0;
+        }
 
-    ctx.fill();
+    });
 
-    p.y += 0.5;
-
-    if(p.y > canvas.height){
-
-      p.y = 0;
-
-    }
-
-  });
-
-  requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
 
 }
 

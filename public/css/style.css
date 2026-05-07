@@ -1,103 +1,66 @@
-body{
+*{
 
-  margin:0;
-  font-family:Arial;
-  background:url('../assets/bg.jpg') center/cover fixed;
-  color:white;
+    padding:20px;
 
-}
+    border:none;
 
-.hero{
+    border-radius:15px;
 
-  width:500px;
+    background:linear-gradient(45deg,#7a0000,#ff0000);
 
-  margin:auto;
+    color:white;
 
-  margin-top:100px;
+    font-weight:bold;
 
-  background:rgba(0,0,0,0.8);
+    font-size:1rem;
 
-  padding:40px;
+    cursor:pointer;
 
-  border-radius:20px;
-
-  box-shadow:
-    0 0 20px red;
-
-}
-
-h1{
-
-  text-align:center;
-
-  color:red;
-
-}
-
-input{
-
-  width:100%;
-
-  padding:15px;
-
-  margin-bottom:15px;
-
-  border:none;
-
-  border-radius:10px;
-
-}
-
-button{
-
-  width:100%;
-
-  padding:15px;
-
-  border:none;
-
-  border-radius:10px;
-
-  background:red;
-
-  color:white;
-
-  font-weight:bold;
-
-  cursor:pointer;
-
-}
-
-.hero{
-
-  animation: glow 2s infinite alternate;
-
-}
-
-@keyframes glow{
-
-  from{
-    box-shadow:0 0 20px red;
-  }
-
-  to{
-    box-shadow:
-      0 0 40px crimson,
-      0 0 80px darkred;
-  }
-
-}
-
-button{
-
-  transition:0.3s;
+    transition:0.4s;
 
 }
 
 button:hover{
 
-  transform:scale(1.05);
+    transform:translateY(-5px) scale(1.03);
 
-  background:crimson;
+    box-shadow:
+    0 0 30px red,
+    0 0 60px darkred;
+
+}
+
+#result{
+
+    margin-top:30px;
+
+    text-align:center;
+
+}
+
+#result a{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    color:white;
+
+    text-decoration:none;
+
+    background:red;
+
+    padding:15px 25px;
+
+    border-radius:12px;
+
+}
+
+canvas{
+
+    position:fixed;
+    inset:0;
+
+    z-index:-1;
 
 }
