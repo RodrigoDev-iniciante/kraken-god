@@ -1,73 +1,61 @@
-const form = document.getElementById('applyForm');
+document
+  .getElementById("applyForm")
+  .addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-form.addEventListener('submit', async (e)=>{
+    const nick = document.getElementById("nick").value;
+    const damage = Number(document.getElementById("damage").value);
+    const hours = Number(document.getElementById("hours").value);
+    const gp = Number(document.getElementById("gp").value);
 
-  e.preventDefault();
+    const result = document.getElementById("result");
 
-  const data = {
+    // PLAYER FORTE
+    if (damage >= 2000000 && gp >= 20 && hours >= 5) {
+      result.innerHTML = `
+        <div class="approvedBox">
+          <h2>☠️ ACEITO NA ORDEM DO KRAKEN ☠️</h2>
+          <p>Você possui força suficiente para entrar na elite.</p>
 
-    nick:nick.value,
-    damage:+damage.value,
-    hours:+hours.value,
-    guildPoints:+gp.value
+          <a href="https://discord.com/channels/1501367507964137524/1501367509075493017" target="_blank">
+            ENTRAR NO DISCORD
+          </a>
+        </div>
+      `;
+    }
 
-  };
+    // PLAYER MEDIANO
+    else if (damage >= 750000 && gp >= 10) {
+      result.innerHTML = `
+        <div class="testBox">
+          <h2>⚔️ TESTE FINAL NECESSÁRIO ⚔️</h2>
+          <p>
+            Você passou nos requisitos mínimos.
+            Agora precisará fazer a prova final da guild.
+          </p>
 
-  const response = await fetch('/api/apply',{
+          <a href="https://discord.com/channels/1501367507964137524/1501367509075493017" target="_blank">
+            ENTRAR NA ÁREA DE TESTES
+          </a>
+        </div>
+      `;
+    }
 
-    method:'POST',
+    // PLAYER FRACO
+    else {
+      result.innerHTML = `
+        <div class="rejectBox">
+          <h2>❌ REQUISITOS INSUFICIENTES ❌</h2>
+          <p>
+            Atualmente você não atende os requisitos mínimos da Ordem do Kraken.
+          </p>
 
-    headers:{
-      'Content-Type':'application/json'
-    },
+          <a href="https://discord.com/channels/1501367507964137524/1501367509075493017" target="_blank">
+            FALAR COM O CAPITÃO
+          </a>
+        </div>
+      `;
+    }
 
-    body:JSON.stringify(data)
-
+    result.style.display = "block";
   });
-
-  const resultData = await response.json();
-
-  let html = '';
-
-  if(resultData.status === 'accepted'){
-
-    html = `
-      <h2 style="color:#00ff88">
-        🔥 ACEITO NA ORDEM DO KRAKEN
-      </h2>
-
-      <a href="${resultData.link}" target="_blank">
-        Entrar no Discord
-      </a>
-    `;
-  }
-
-  if(resultData.status === 'test'){
-
-    html = `
-      <h2 style="color:orange">
-        ⚔️ FASE FINAL DE TESTE
-      </h2>
-
-      <a href="${resultData.link}" target="_blank">
-        Entrar no Discord
-      </a>
-    `;
-  }
-
-  if(resultData.status === 'rejected'){
-
-    html = `
-      <h2 style="color:red">
-        ❌ REQUISITOS INSUFICIENTES
-      </h2>
-
-      <a href="${resultData.link}" target="_blank">
-        Falar com liderança
-      </a>
-    `;
-  }
-
-  document.getElementById('result').innerHTML = html;
-
-});
