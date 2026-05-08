@@ -1,155 +1,109 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+<title>Ordem do Kraken</title>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
 
-    <title>ORDEM DO KRAKEN</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- LOADING -->
+<div id="loader">
+    <video autoplay muted loop id="loaderVideo">
+        <source src="assets/loading.mp4" type="video/mp4">
+    </video>
 
-    <div id="loader">
+    <div class="loaderOverlay">
+        <h1>ORDEM DO KRAKEN</h1>
+        <p>Inicializando sistema da guild...</p>
+    </div>
+</div>
 
-        <div class="loaderOverlay">
+<div class="backgroundOverlay"></div>
 
-            <h1>ORDEM DO KRAKEN</h1>
+<audio autoplay loop>
+    <source src="assets/ambient.mp3" type="audio/mp3">
+</audio>
 
-            <p>Inicializando sistema da guild...</p>
+<section class="hero cinematicFade">
+
+    <div class="navbar">
+        <div class="logo">
+            🐙 ORDEM DO KRAKEN
+        </div>
+
+        <div class="menu">
+            <a href="#">INÍCIO</a>
+            <a href="#">RANKING</a>
+            <a href="#">TEMPORADA</a>
+            <a href="#">DISCORD</a>
+            <a href="#">PAINEL</a>
+        </div>
+    </div>
+
+    <div class="card">
+
+        <h1>🐙 ORDEM DO KRAKEN</h1>
+
+        <p class="subtitle">
+            A guild mais dominante do servidor.
+        </p>
+
+        <div class="seasonBox">
+            TEMPORADA 01 • RECRUTAMENTO ABERTO
+        </div>
+
+        <form id="applyForm">
+
+            <input id="nick" type="text" placeholder="Nick do jogador" required>
+
+            <input id="damage" type="number" placeholder="Damage total" required>
+
+            <input id="hours" type="number" placeholder="Horas jogadas por dia" required>
+
+            <input id="bounty" type="number" placeholder="Bounty" required>
+
+            <button type="submit">
+                ⚔ ENTRAR PARA O KRAKEN
+            </button>
+
+        </form>
+
+        <div id="result"></div>
+
+        <div class="stats">
+
+            <div class="statBox">
+                <h2>257</h2>
+                <p>Membros</p>
+            </div>
+
+            <div class="statBox">
+                <h2>98%</h2>
+                <p>Taxa Win</p>
+            </div>
+
+            <div class="statBox">
+                <h2>S+</h2>
+                <p>Rank Guild</p>
+            </div>
 
         </div>
 
     </div>
 
-    <!-- OVERLAY -->
+</section>
 
-    <div class="backgroundOverlay"></div>
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <h1>🐙 ORDEM DO KRAKEN</h1>
-
-        <p class="subtitle">
-            A guild mais dominante do servidor
-        </p>
-
-        <!-- STATUS -->
-
-        <div class="statusBox">
-
-            <span class="onlinePulse"></span>
-
-            RECRUTAMENTO ABERTO
-
-        </div>
-
-        <!-- FORM -->
-
-        <form id="applyForm">
-
-            <input
-                id="nick"
-                type="text"
-                placeholder="Nick do jogador"
-                required
-            >
-
-            <input
-                id="damage"
-                type="number"
-                placeholder="Damage total"
-                required
-            >
-
-            <input
-                id="hours"
-                type="number"
-                placeholder="Horas jogadas por dia"
-                required
-            >
-
-            <input
-                id="gp"
-                type="number"
-                placeholder="Guild Points"
-                required
-            >
-
-            <button type="submit">
-                ⚔️ ENTRAR PARA O KRAKEN
-            </button>
-
-        </form>
-
-        <!-- RESULTADO -->
-
-        <div id="result"></div>
-
-        <!-- STATS BAR -->
-
-        <div class="statsBar">
-
-            <div>
-
-                <h3>500+</h3>
-
-                <p>Candidatos</p>
-
-            </div>
-
-            <div>
-
-                <h3>TOP 1</h3>
-
-                <p>Servidor</p>
-
-            </div>
-
-            <div>
-
-                <h3>24/7</h3>
-
-                <p>Atividade</p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- SCRIPTS -->
-
-    <script src="js/particles.js"></script>
-
-    <script src="js/cinematic.js"></script>
-
-    <script src="js/audio.js"></script>
-
-    <script src="js/loader.js"></script>
-
-    <script src="js/parallax.js"></script>
-
-    <script src="js/typewriter.js"></script>
-
-    <script src="js/sfx.js"></script>
-
-    <script src="js/script.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/cinematic.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/loader.js"></script>
+<script src="js/script.js"></script>
 
 </body>
 </html>

@@ -1,61 +1,94 @@
-document
-  .getElementById("applyForm")
-  .addEventListener("submit", async (e) => {
+const form = document.getElementById("applyForm");
+const result = document.getElementById("result");
+
+form.addEventListener("submit", async (e) => {
+
     e.preventDefault();
 
     const nick = document.getElementById("nick").value;
     const damage = Number(document.getElementById("damage").value);
     const hours = Number(document.getElementById("hours").value);
-    const gp = Number(document.getElementById("gp").value);
+    const bounty = Number(document.getElementById("bounty").value);
 
-    const result = document.getElementById("result");
+    let rank = "";
+    let message = "";
+    let color = "";
 
-    // PLAYER FORTE
-    if (damage >= 2000000 && gp >= 20 && hours >= 5) {
-      result.innerHTML = `
-        <div class="approvedBox">
-          <h2>☠️ ACEITO NA ORDEM DO KRAKEN ☠️</h2>
-          <p>Você possui força suficiente para entrar na elite.</p>
+    if (
+        damage >= 750000 &&
+        bounty >= 10000000 &&
+        hours >= 4
+    ) {
 
-          <a href="https://discord.com/channels/1501367507964137524/1501367509075493017" target="_blank">
-            ENTRAR NO DISCORD
-          </a>
-        </div>
-      `;
+        rank = "ACEITO";
+        color = "#00ff88";
+
+        message = `
+        <h2>🏴‍☠️ ACEITO PARA O KRAKEN</h2>
+
+        <p>
+        Compatibilidade: 97%
+        </p>
+
+        <p>
+        Jogador extremamente forte.
+        </p>
+
+        <a class="discordBtn" href="SEU_LINK_DISCORD" target="_blank">
+        ENTRAR NO DISCORD
+        </a>
+        `;
+
+    } else if (
+        damage >= 350000 &&
+        bounty >= 5000000
+    ) {
+
+        rank = "EM TESTE";
+        color = "#ffd000";
+
+        message = `
+        <h2>⚔ TESTE FINAL NECESSÁRIO</h2>
+
+        <p>
+        Compatibilidade: 68%
+        </p>
+
+        <p>
+        Você possui potencial.
+        </p>
+
+        <a class="discordBtn" href="SEU_LINK_DISCORD" target="_blank">
+        IR PARA TESTES
+        </a>
+        `;
+
+    } else {
+
+        rank = "RECUSADO";
+        color = "#ff3b3b";
+
+        message = `
+        <h2>❌ REQUISITOS INSUFICIENTES</h2>
+
+        <p>
+        Compatibilidade: 24%
+        </p>
+
+        <p>
+        Continue evoluindo e tente novamente.
+        </p>
+
+        <a class="discordBtn" href="SEU_LINK_CAPITAO" target="_blank">
+        FALAR COM LÍDER
+        </a>
+        `;
     }
 
-    // PLAYER MEDIANO
-    else if (damage >= 750000 && gp >= 10) {
-      result.innerHTML = `
-        <div class="testBox">
-          <h2>⚔️ TESTE FINAL NECESSÁRIO ⚔️</h2>
-          <p>
-            Você passou nos requisitos mínimos.
-            Agora precisará fazer a prova final da guild.
-          </p>
-
-          <a href="https://discord.com/channels/1501367507964137524/1501367509075493017" target="_blank">
-            ENTRAR NA ÁREA DE TESTES
-          </a>
+    result.innerHTML = `
+        <div class="resultCard" style="border-color:${color}">
+            ${message}
         </div>
-      `;
-    }
+    `;
 
-    // PLAYER FRACO
-    else {
-      result.innerHTML = `
-        <div class="rejectBox">
-          <h2>❌ REQUISITOS INSUFICIENTES ❌</h2>
-          <p>
-            Atualmente você não atende os requisitos mínimos da Ordem do Kraken.
-          </p>
-
-          <a href="https://discord.com/channels/1501367507964137524/1501367509075493017" target="_blank">
-            FALAR COM O CAPITÃO
-          </a>
-        </div>
-      `;
-    }
-
-    result.style.display = "block";
-  });
+});
