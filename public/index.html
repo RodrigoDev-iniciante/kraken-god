@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Ordem do Kraken</title>
 
   <link rel="stylesheet" href="css/style.css">
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&display=swap"
+    rel="stylesheet">
 </head>
 
 <body>
 
-  <!-- LOADING -->
+  <!-- LOADER -->
   <div id="loader">
+
     <video autoplay muted loop id="loaderVideo">
       <source src="assets/loading.mp4" type="video/mp4">
     </video>
@@ -26,31 +26,34 @@
       <h1>ORDEM DO KRAKEN</h1>
       <p>Inicializando sistema da guild...</p>
     </div>
+
   </div>
 
-  <!-- SOM -->
+  <!-- MÚSICA -->
   <audio id="bgMusic" loop>
     <source src="assets/ambient.mp3" type="audio/mpeg">
   </audio>
 
-  <!-- FUNDO -->
+  <!-- PARTÍCULAS -->
+  <canvas id="particles"></canvas>
+
+  <!-- OVERLAY -->
   <div class="backgroundOverlay"></div>
 
   <!-- NAVBAR -->
   <nav class="navbar">
+
     <div class="logo">
       🐙 ORDEM DO KRAKEN
     </div>
 
     <div class="navLinks">
-      <a href="#inicio">INÍCIO</a>
+      <a href="#">INÍCIO</a>
       <a href="#ranking">RANKING</a>
       <a href="#temporada">TEMPORADA</a>
 
-      <a
-        href="https://discord.gg/SEULINK"
-        target="_blank"
-      >
+      <a href="https://discord.gg/SEULINK"
+        target="_blank">
         DISCORD
       </a>
 
@@ -58,10 +61,11 @@
         PAINEL
       </a>
     </div>
+
   </nav>
 
   <!-- HERO -->
-  <section class="hero cinematicFade" id="inicio">
+  <section class="hero cinematicFade">
 
     <div class="heroCard">
 
@@ -75,71 +79,98 @@
       </p>
 
       <div class="seasonBadge">
-        TEMPORADA 01 • RECRUTAMENTO ABERTO
+        ● RECRUTAMENTO ABERTO
       </div>
 
       <!-- FORM -->
       <form id="applyForm">
 
-        <input
-          type="text"
+        <input type="text"
           id="nick"
           placeholder="Nick do jogador"
-          required
-        >
+          required>
 
-        <input
-          type="number"
+        <input type="number"
           id="damage"
           placeholder="Damage total"
-          required
-        >
+          required>
 
-        <input
-          type="number"
+        <input type="number"
           id="hours"
           placeholder="Horas jogadas por dia"
-          required
-        >
+          required>
 
-        <input
-          type="number"
+        <input type="number"
           id="bounty"
           placeholder="Bounty"
-          required
-        >
+          required>
 
-        <button type="submit" class="krakenButton">
+        <button type="submit"
+          class="krakenButton">
           ⚔ ENTRAR PARA O KRAKEN
         </button>
 
       </form>
 
-      <!-- IA AVALIADORA -->
+      <!-- RESULT -->
+      <div id="result"></div>
+
+      <!-- IA -->
       <div class="aiBox">
-        <h3>🤖 AVALIAÇÃO AUTOMÁTICA</h3>
+
+        <h2>🤖 IA AVALIADORA KRAKEN</h2>
 
         <div id="aiResult">
-          Aguardando dados do jogador...
+          Aguardando análise do jogador...
         </div>
+
       </div>
 
-      <!-- STATUS -->
-      <div class="statsGrid">
+      <!-- STATS -->
+      <div class="statsContainer">
 
         <div class="statCard">
-          <h2>257</h2>
-          <p>Membros</p>
+          <h3>500+</h3>
+          <p>CANDIDATOS</p>
         </div>
 
         <div class="statCard">
-          <h2>98%</h2>
-          <p>Taxa Win</p>
+          <h3>TOP 1</h3>
+          <p>SERVIDOR</p>
         </div>
 
         <div class="statCard">
-          <h2>S+</h2>
-          <p>Rank Guild</p>
+          <h3>24/7</h3>
+          <p>ATIVIDADE</p>
+        </div>
+
+      </div>
+
+      <!-- TEMPORADA -->
+      <div class="seasonBox"
+        id="temporada">
+        ⚔ TEMPORADA 01 ATIVA
+      </div>
+
+      <!-- RANK -->
+      <div class="rankingBox"
+        id="ranking">
+
+        <h2>🏆 ELITE KRAKEN</h2>
+
+        <div class="rankPlayer">
+          <span>#1 ShadowX</span>
+          <span>9.8M</span>
+        </div>
+
+        <div class="rankPlayer">
+          <span>#2 RedSea</span>
+          <span>8.7M</span>
+        </div>
+
+        <div class="rankPlayer">
+          <span>#3 KrakenSoul</span>
+          <span>8.1M</span>
         </div>
 
       </div>
@@ -147,60 +178,6 @@
     </div>
 
   </section>
-
-  <!-- RANKING -->
-  <section class="rankingSection" id="ranking">
-
-    <h2 class="sectionTitle">
-      🏆 RANKING KRAKEN
-    </h2>
-
-    <div id="rankingList" class="rankingList">
-
-      <div class="rankingPlayer">
-        <span>#1 ShadowX</span>
-        <span>9.2M Damage</span>
-      </div>
-
-      <div class="rankingPlayer">
-        <span>#2 KrakenSoul</span>
-        <span>8.7M Damage</span>
-      </div>
-
-      <div class="rankingPlayer">
-        <span>#3 RedSea</span>
-        <span>7.9M Damage</span>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- TEMPORADA -->
-  <section class="seasonSection" id="temporada">
-
-    <h2 class="sectionTitle">
-      ⚔ SISTEMA DE TEMPORADAS
-    </h2>
-
-    <div class="seasonCard">
-
-      <h3>TEMPORADA 01</h3>
-
-      <p>
-        Recrutamento competitivo ativo.
-      </p>
-
-      <div class="seasonProgress">
-        <div class="seasonBar"></div>
-      </div>
-
-    </div>
-
-  </section>
-
-  <!-- PARTICLES -->
-  <canvas id="particles"></canvas>
 
   <!-- SCRIPTS -->
   <script src="js/particles.js"></script>
@@ -210,4 +187,5 @@
   <script src="js/script.js"></script>
 
 </body>
+
 </html>
